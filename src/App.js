@@ -9,17 +9,125 @@ function App() {
   const [modalItem, setModalItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Статичні дані замість завантаження з JSON
+  const staticData = [
+    {
+      "category": "IT",
+      "description": "я Software Engeneer в продуктовій компанії і в такий буремний, для джунів, час знайов свою першу роботу в IT менше ніж за місяць, тому, я гадаю, маю чим поділитися",
+      "items": [
+        {
+          "name": "чек лист що питають на співбесідах frontend developer",
+          "price": "150 грн"
+        },
+        {
+          "name": "як складати cover letter (мій досвід)",
+          "price": "150 грн"
+        },
+        {
+          "name": "як привертати увагу рекрутерів",
+          "price": "150 грн"
+        },
+        {
+          "name": "тех чек (для джунів frontend)",
+          "price": "150 грн"
+        }
+      ]
+    },
+    {
+      "category": "медіа",
+      "description": "був час коли я займався медійною стороною для Студентського уряду ВНТУ та Відокремленого підрозділу УСЛ, люди казали, що буває, креативні ідеї видаю. Тому якщо хочеш щось зробити в медіа (для себе чи організації) - можливо, я зможу щось накинути ",
+      "items": [
+        {
+          "name": "поділюсь референсами, які залишилися в мене",
+          "price": "100 грн"
+        },
+        {
+          "name": "спільний брейншторм",
+          "price": "200 грн"
+        },
+        {
+          "name": "ідея + реалізація креативу [Вінниця]",
+          "price": "300 грн"
+        }
+      ]
+    },
+    {
+      "category": "різне",
+      "description": "просто ось таких пару пунктиків, які на мою думку прикольненькі",
+      "items": [
+        {
+          "name": "анекдот",
+          "price": "50 грн"
+        },
+        {
+          "name": "порекомендувати книгу ",
+          "price": "70 грн"
+        },
+        {
+          "name": "порекомендувати фільм ",
+          "price": "70 грн"
+        },
+        {
+          "name": "подарую книгу, яку останню прочитав",
+          "price": "200 грн"
+        },
+        {
+          "name": "маєш свою ідею, яку я не врахував",
+          "price": "500 грн"
+        }
+      ]
+    },
+    {
+      "category": "разом",
+      "description": "ти платиш гроші, з мене вся організація. класно придумав?) (якщо активність платна - кожен платить сам за себе)",
+      "items": [
+        {
+          "name": "піти на пробіжку ",
+          "price": "100 грн"
+        },
+        {
+          "name": "зібратися на футбол",
+          "price": "200 грн"
+        },
+        {
+          "name": "пограємо в приставку",
+          "price": "150 грн"
+        },
+        {
+          "name": "покататися на велосипедах",
+          "price": "200 грн"
+        },
+        {
+          "name": "пограти майнкрафт",
+          "price": "100 грн"
+        },
+        {
+          "name": "покататися на сапах",
+          "price": "500 грн"
+        }
+      ]
+    },
+    {
+      "category": "для моєї дівчини",
+      "description": "Аліна попросила додати це сюди - хто я такий, щоб це не зробити)",
+      "items": [
+        {
+          "name": "виконувати цілий день бажання",
+          "price": "1000 грн"
+        },
+        {
+          "name": "помити машину",
+          "price": "300 грн"
+        }
+      ]
+    }
+  ];
+  
+
   useEffect(() => {
-    fetch('/data.json')
-      .then(response => response.json())
-      .then(data => {
-        setCategories(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Помилка завантаження даних:', error);
-        setLoading(false);
-      });
+    // Використовуємо статичні дані замість fetch
+    setCategories(staticData);
+    setLoading(false);
   }, []);
 
   const handleCategoryClick = (category) => {
@@ -84,7 +192,6 @@ function App() {
           {(selectedCategory && !isChanging) && (
             <div className="items-content">
               <h2>{`[ ${selectedCategory.category} ]`}</h2>
-              <p>{selectedCategory.description}</p>
               <ul className="items-list">
                 {selectedCategory.items.map((item, index) => (
                   <li key={index} onClick={() => handleItemClick(item)}>
@@ -117,6 +224,7 @@ function App() {
                   href="https://send.monobank.ua/jar/7uiVGcPZbN" 
                   className="modal-button"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   донатик сюди
                 </a>
