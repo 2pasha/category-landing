@@ -226,7 +226,7 @@ function App() {
             </div>
             <div className="modal-body">
               <div className="modal-price">
-                <span className="price-label">для того щоб обрати цю позицію, потрібно зробити донат від {modalItem?.price}</span>
+                <span className="price-label">для того щоб обрати цю позицію, потрібно зробити донат від {modalItem?.price}. І зазнач, будь ласка, в призначенні яку позицію обрав і як тебе можна знайти (телеграм/інстаграм)</span>
               </div>
               <div className="modal-actions">
                 <a 
