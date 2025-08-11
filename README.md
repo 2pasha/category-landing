@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+# Каталог категорій - React додаток
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Мінімалістичний React додаток для відображення категорій товарів та об'єктів з можливістю донату. Дизайн у термінальному стилі з чорним фоном та білим текстом.
 
-## Available Scripts
+## ✨ Функціональність
 
-In the project directory, you can run:
+- **Відображення категорій**: Мінімалістичний список категорій зліва
+- **Вибір категорії**: Клік по категорії робить її активною
+- **Відображення об'єктів**: Справа показуються всі об'єкти з обраної категорії
+- **Модальне вікно**: Детальна інформація про об'єкт з кнопкою донату
+- **Анімації**: Плавні переходи та ефекти появи
+- **Адаптивний дизайн**: Підтримка мобільних пристроїв
 
-### `npm start`
+## 🎨 Дизайн
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Стиль**: Мінімалістичний термінальний
+- **Кольори**: Чорний фон, білий текст
+- **Шрифт**: Моноширинний (Courier New, Monaco)
+- **Анімації**: Fade-in, slide-in, hover ефекти
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Швидкий старт
 
-### `npm test`
+### Локальний запуск
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Клонування репозиторію:**
+```bash
+git clone https://github.com/your-username/category-landing.git
+cd category-landing
+```
 
-### `npm run build`
+2. **Встановлення залежностей:**
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Запуск проекту:**
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Відкрийте браузер:** `http://localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Деплой на GitHub Pages
 
-### `npm run eject`
+1. **Підготуйте проект:**
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Деплой:**
+```bash
+npm run deploy
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Налаштування GitHub:**
+   - Перейдіть в Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: gh-pages
+   - Folder: / (root)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Структура проекту
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+category-landing/
+├── public/
+│   ├── data.json          # Дані категорій та об'єктів
+│   ├── favicon.svg        # SVG favicon
+│   ├── og-image.svg       # Open Graph зображення
+│   └── index.html         # HTML шаблон з мета-тегами
+├── src/
+│   ├── App.js             # Основний React компонент
+│   ├── App.css            # Стилі з анімаціями
+│   └── index.js           # Точка входу
+├── package.json           # Залежності та скрипти
+└── README.md              # Документація
+```
 
-## Learn More
+## ⚙️ Налаштування
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Зміна даних
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Відредагуйте файл `public/data.json`:
 
-### Code Splitting
+```json
+[
+  {
+    "category": "Назва категорії",
+    "items": [
+      {
+        "name": "Назва об'єкта",
+        "price": "Сума донату"
+      }
+    ]
+  }
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Зміна посилання для донату
 
-### Analyzing the Bundle Size
+В `src/App.js` знайдіть та змініть URL:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+href="https://send.monobank.ua/jar/YOUR_JAR_ID"
+```
 
-### Making a Progressive Web App
+### Налаштування GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Оновіть `homepage` в `package.json`:**
+```json
+"homepage": "https://YOUR_USERNAME.github.io/category-landing"
+```
 
-### Advanced Configuration
+2. **Замініть `your-username` в `public/index.html`:**
+```html
+<meta property="og:url" content="https://YOUR_USERNAME.github.io/category-landing/" />
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔧 Технології
 
-### Deployment
+- **React 18** - UI бібліотека
+- **CSS3** - Стилі та анімації
+- **Fetch API** - Завантаження даних
+- **gh-pages** - Деплой на GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📱 Responsive дизайн
 
-### `npm run build` fails to minify
+- **Desktop**: Двостовпцевий layout
+- **Tablet**: Адаптивні відступи
+- **Mobile**: Одностовпцевий layout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🎯 SEO та мета-теги
+
+- **Title**: "Каталог категорій - Мінімалістичний лендінг"
+- **Description**: Опис функціональності
+- **Open Graph**: Для соціальних мереж
+- **Twitter Cards**: Для Twitter
+- **Favicon**: SVG іконка
+
+## 🚀 Команди
+
+```bash
+npm start          # Запуск dev сервера
+npm run build      # Збірка для продакшену
+npm run deploy     # Деплой на GitHub Pages
+npm test           # Запуск тестів
+```
+
+## 📄 Ліцензія
+
+MIT License - вільне використання та модифікація.
+
+## 🤝 Внесок
+
+1. Fork проект
+2. Створіть feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit зміни (`git commit -m 'Add some AmazingFeature'`)
+4. Push в branch (`git push origin feature/AmazingFeature`)
+5. Відкрийте Pull Request
+
+## 📞 Підтримка
+
+Якщо у вас є питання або пропозиції, створіть Issue в репозиторії.
+
+---
+
+**Створено з ❤️ використовуючи React та мінімалістичний дизайн**
