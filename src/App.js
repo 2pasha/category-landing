@@ -84,6 +84,7 @@ function App() {
           {(selectedCategory && !isChanging) && (
             <div className="items-content">
               <h2>{`[ ${selectedCategory.category} ]`}</h2>
+              <p>{selectedCategory.description}</p>
               <ul className="items-list">
                 {selectedCategory.items.map((item, index) => (
                   <li key={index} onClick={() => handleItemClick(item)}>
